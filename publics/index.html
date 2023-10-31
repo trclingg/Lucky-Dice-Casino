@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Dice Game</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxQ6PPqLXAQf896R1cZIF7zR4G48fUz7G396K9F24z" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+    <!-- link to script.js bundle file -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+
+    <!-- Import them style bootstrap cho datatable -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Black+Ops+One&Merriweather&family=Montserrat:wght@600&family=Poppins&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="font-style.css">
+    <script src="./script.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid p-0 m-0">
+        <h1 class="text_shadows">Lucky Dice Game</h1>
+        <div class="typewriter">
+            <p></p>
+        </div>
+        <div class="col-lg-12" id="hero-part">
+            <div id="dice-decor-box" class="col-lg-5">
+                <div id="dice-decor" class="">
+                    <img src="./image/Dice-isolated-3d-objects-of-gambling-games-on-transparent-background-PNG-removebg-preview.png"
+                        alt="">
+
+
+                    <img src="https://cdn3d.iconscout.com/3d/premium/thumb/dice-4112743-3408791@0.png" alt="">
+                    <img src="./image/rm251-aum-01_1_2-removebg-preview.png">
+                    <img src="./image/png-clipart-explosion-color-powder-dust-color-splash-effect-blue-teal-black-and-pink-abstract-painting-purple-blue-thumbnail-removebg-preview.png"
+                        alt="">
+                </div>
+            </div>
+            <div id="user-info" class="col-lg-7">
+                <h1>
+                    <a style="text-decoration: none;" href="" class="typewrite" data-period="2000"
+                        data-type='[ "Enter Player`s Info" ]'>
+                        <span class="wrap"></span>
+                    </a>
+                </h1>
+
+                <div action="" method="post" class="form-inp">
+                    <label for="username">Username:</label><br>
+                    <input type="text" autocomplete="off" id="username" name="username"><br>
+                    <div class="review-info" id="uname-review">Username required</div>
+                    <label for="firstname">First Name:</label><br>
+                    <input type="text" autocomplete="off" id="firstname" name="firstname"><br>
+                    <div class="review-info" id="fname-review">Firstname required</div>
+                    <label for="lastname">Last Name:</label><br>
+                    <input type="text" autocomplete="off" id="lastname" name="lastname"><br>
+                    <div class="review-info" id="lname-review">Lastname required</div>
+                    <br>
+                    <div class="review-user-info" id="form-review">Player's Info Has Been Recorded</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="play-game" class="container p-0 m-0">
+        <button class="roll-btn" id="roll-dice">Roll Dice</button>
+        <div class="row" id="result-dice">
+            <div id="dice"></div>
+            <div id="result"></div>
+        </div>
+        <div class="row m-0 p-0" id="result-prize-and-voucher">
+            <div id="voucher-section" class="col-lg-8">
+                <div class="label col-5 ">VOUCHER CODE</div>
+                <input class="col-4 " type="text" name="" id="" disabled placeholder="VOUCHER CODE">
+                <div class="voucher-number col-3" id="">0% discount</div>
+
+            </div>
+            <div id="prize-section" class="col-lg-8">
+                <div class="col-3 label">PRIZE</div>
+                <input class="col-7" type="text" name="" id="" disabled placeholder="PRIZE">
+            </div>
+        </div>
+        <div class="mt-5 rule text-center" id="">*** Score 4 or more to claim a discount voucher </br>*** Score 4 or
+            more in three most recent games to win a prize</div>
+
+    </div>
+
+    <div id="history" class="m-0 mt-5 p-0">
+        <div class="row">
+            <button id="dice-history">Dice History</button>
+            <button id="voucher-history">Voucher History</button>
+            <button id="prize-history">Prize History</button>
+        </div>
+        <div class="row">
+            <div class="uname-alert text-center" id="">Please Fill Player's Name In The Above Section</div>
+        </div>
+    </div>
+    <div id="table-box">
+        <table class="" id="dice-history-table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <!-- <th>Date</th> -->
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</body>
+<script type="module" src="./script.js"></script>
+<script>
+    /*** REGION 1 - Global variables - Vùng khai báo biến, hằng số, tham số TOÀN CỤC */
+
+    /*** REGION 2 - Vùng gán / thực thi hàm xử lý sự kiện cho các elements */
+
+    $(document).ready(function () {
+        $('#dice-history-table').DataTable({
+            columns: [
+                { title: '#No' },
+                { title: 'Score' }
+            ],
+            columnDefs: [
+                {
+                    render: (data, type, row, meta) => {
+                        return meta.row + 1
+                    },
+                    targets: 0
+                },
+                {
+                    render: (data) => {
+                        return data
+                    },
+                    targets: 1
+                }
+            ],
+            serverSide: false,
+            info: false,
+            ordering: false,
+            paging: false,
+            searching: false
+        });
+
+        $("#roll-dice").on("click", async () => {
+            var vDiceResult = await callApiPostGetADiceGame()
+            if (vDiceResult) {
+                // clear input voucher and prize
+                $("#voucher-section input").val("");
+                $("#prize-section input").val("");
+                $("#voucher-section .voucher-number").html(`0% discount`)
+                displayDiceResult(vDiceResult);
+                $("#table-box").css("display", "none");
+                
+            }
+        });
+
+        $("#dice-history").on("click", () => {
+
+            if (validateUsername()) {
+                showTable();
+                makeDataTableForDiceHistory()
+            }
+        });
+        
+        $("#voucher-history").on("click", () => {
+            if (validateUsername()) {
+                showTable();
+                makeDataTableForVoucherHistory()
+            }
+
+        });
+        
+        $("#prize-history").on("click", () => {
+            if (validateUsername()) {
+                showTable();
+                makeDataTableForPrizeHistory()
+
+            }
+
+
+        });
+    })
+    /*** REGION 3 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
+
+    const callApiPostGetADiceGame = async () => {
+        // 1: collect data
+        var vUsername = $("#username").val();
+        var vFname = $("#firstname").val();
+        var vLname = $("#lastname").val();
+        var vUserObj = {
+            "username": vUsername,
+            "firstname": vFname,
+            "lastname": vLname
+        }
+        // 2: validate data
+        var vValidatedInfo = validateUserObj(vUserObj);
+        // 3: call api
+        if (vValidatedInfo) {
+            // console.log(JSON.stringify(vUserObj))
+            try {
+                const response = await fetch("/lucky-dice/dice", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    // contentType: 
+                    body: JSON.stringify(vUserObj)
+                })
+                response.ok;     // => false
+                response.status;
+                const data = await response.json()
+                // console.log(data.diceResult)  
+                return data.diceResult
+
+            }
+            catch (error) {
+                console.log(error)
+            }
+
+        }
+    }
+
+    const displayDiceResult = (paramDiceResultObj) => {
+        $("#result").css("background-image", "none")
+        $("#result").css({
+            "background-image": `url("/image/dice${paramDiceResultObj.dice}.png")`,
+            "background-size": "cover",
+            "background-repeat": "no-repeat",
+            "width": "200px",
+            "height": "200px",
+            "margin": "50px"
+        });
+        if (paramDiceResultObj.voucher != null) {
+            $("#voucher-section input").val(paramDiceResultObj.voucher.code)
+            $("#voucher-section .voucher-number").html(`${paramDiceResultObj.voucher.discount}% discount`)
+        }
+        if (paramDiceResultObj.prize != null) {
+            $("#prize-section input").val(paramDiceResultObj.prize.name)
+        }
+
+    }
+
+    const showTable = () => {
+        $("#table-box").css("display", "block");
+
+    }
+
+    const makeDataTableForDiceHistory = async () => {
+        var vDiceArray = await callApiGetDiceHistory()
+        // console.log(vDiceArray)
+        var vColumnTitle = "Dice History"
+        reloadDataTable(vDiceArray, vColumnTitle);
+    }
+    
+    const makeDataTableForVoucherHistory = async () => {
+        var vVoucherArray = await callApiGetVoucherHistory()
+        // console.log(vVoucherArray)
+        var vColumnTitle = "Voucher History"
+        reloadDataTable(vVoucherArray, vColumnTitle);
+    }
+    
+    const makeDataTableForPrizeHistory = async () => {
+        var vPrizeArray = await callApiGetPrizeHistory()
+        // console.log(vPrizeArray)
+        var vColumnTitle = "Prize History"
+        reloadDataTable(vPrizeArray, vColumnTitle);
+    }
+    /*** REGION 4 - Common funtions - Vùng khai báo hàm dùng chung trong toàn bộ chương trình*/
+    const reloadDataTable = (paramDataArray, paramCol1Title) => {
+        var table = $('#dice-history-table').DataTable();
+        $(table.columns(1).header()).html(paramCol1Title);
+
+        table.clear();
+        for (let i = 0; i < paramDataArray.length && i < 10; i++) {
+            table.row.add([i + 1, paramDataArray[i]]);
+        }
+        table.draw()
+    }
+
+    const validateUserObj = (paramUserObj) => {
+        let vCheck = true;
+        if (!paramUserObj.username) {
+            $("#uname-review").css("display", "block")
+            vCheck = false
+        } else {
+            $("#uname-review").css("display", "none")
+        }
+        if (!paramUserObj.firstname) {
+            $("#fname-review").css("display", "block")
+            vCheck = false
+
+        } else {
+            $("#fname-review").css("display", "none")
+        }
+        if (!paramUserObj.lastname) {
+            $("#lname-review").css("display", "block")
+            vCheck = false
+
+        } else {
+            $("#lname-review").css("display", "none")
+        }
+        if (vCheck) {
+            $("#form-review").css("display", "block")
+            return vCheck
+        }
+        $("#form-review").css("display", "none")
+        return vCheck
+    }
+
+    const callApiGetDiceHistory = async () => {
+        // 1: collect data
+        var vUsername = $("#username").val();
+
+        // 2: call api
+        try {
+            const response = await fetch(`/lucky-dice/dice-history?username=${vUsername}`, {
+                method: "GET"
+            })
+            response.ok;     // => false
+            response.status;
+            const data = await response.json()
+            // console.log(data.dices)
+            return data.dices
+
+        }
+        catch (error) {
+            console.log(error)
+        }
+
+    }
+
+    const callApiGetVoucherHistory = async () => {
+        // 1: collect data
+        var vUsername = $("#username").val();
+        var arr = [];
+        // 2: call api
+        try {
+            const voucherObjResponse = await fetch(`/lucky-dice/voucher-history?username=${vUsername}`, {
+                method: "GET"
+            })
+            voucherObjResponse.ok;     // => false
+            voucherObjResponse.status;
+            const data = await voucherObjResponse.json()
+            for (let i = 0; i < data.vouchers.length; i++) {
+                var voucherId = data.vouchers[i].voucher
+                let voucherName = await fetch(`/vouchers/${voucherId}`, {
+                    method: "GET"
+                })
+                voucherName = await voucherName.json()
+                arr.push(voucherName.data.code)
+            }
+            return arr
+
+        }
+        catch (error) {
+            console.log(error)
+        }
+
+    }
+    
+    const callApiGetPrizeHistory = async () => {
+        // 1: collect data
+        var vUsername = $("#username").val();
+
+        // 2: call api
+        try {
+            const response = await fetch(`/lucky-dice/prize-history?username=${vUsername}`, {
+                method: "GET"
+            })
+            response.ok;     // => false
+            response.status;
+            const data = await response.json()
+            // console.log(data.dices)
+            return data.prizes
+
+        }
+        catch (error) {
+            console.log(error)
+        }
+
+    }
+
+    const validateUsername = () => {
+        // 1: collect data
+        var vUsername = $("#username").val();
+
+        var vUserObj = {
+            "username": vUsername,
+        }
+
+        // 2: validate data
+        var vValidatedInfo = false
+
+        if (!vUserObj.username) {
+            $("#uname-review").css("display", "block")
+            $(".uname-alert").css("display", "block")
+        }
+        else {
+            $("#uname-review").css("display", "none")
+            $(".uname-alert").css("display", "none")
+            vValidatedInfo = true
+        }
+        return vValidatedInfo
+
+    }
+</script>
